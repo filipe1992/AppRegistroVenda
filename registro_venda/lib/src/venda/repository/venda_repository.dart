@@ -2,7 +2,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../model/venda.dart';
 
-class VendaProvider {
+class VendaRepository {
   Database db;
 
   Future open(String path) async {

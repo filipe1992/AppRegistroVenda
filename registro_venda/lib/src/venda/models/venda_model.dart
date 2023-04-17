@@ -1,5 +1,5 @@
 
-const String tableVenda = 'venda';
+const String tablevendaModel = 'vendaModel';
 const String columnId = 'id';
 const String columnIdTipo = 'idTipo';
 const String columnIdTamanho = 'idTamanho';
@@ -8,7 +8,7 @@ const String columnIdCor = 'idCor';
 const String columnIdCliente = 'idCliente';
 const String columnDataHora = 'dataHora';
 
-class Venda {
+class vendaModel {
   int id;
   int idTipo;
   int idTamanho;
@@ -18,7 +18,7 @@ class Venda {
   String dataHora;
 
 
-  Venda(this.id, this.idTipo, this.idTamanho, this.preco, this.idCor,
+  vendaModel(this.id, this.idTipo, this.idTamanho, this.preco, this.idCor,
       this.idCliente, this.dataHora);
 
   Map<String, dynamic> toMap() {
@@ -36,7 +36,7 @@ class Venda {
     return map;
   }
 
-  Venda.fromMap(Map<String, dynamic> map):
+  vendaModel.fromMap(Map<String, dynamic> map):
         this(
           map[columnId],
           map[columnIdTipo],
