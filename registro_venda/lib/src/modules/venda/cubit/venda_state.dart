@@ -6,31 +6,31 @@ abstract class VendaState {}
 class VendaCreate extends VendaState {}
 
 class VendaUpdate extends VendaState {
-  VendaModel venda;
+  final VendaModel venda;
 
   VendaUpdate(this.venda);
 }
 
 class VendaList extends VendaState {
-  List<VendaModel> vendas;
+  final List<VendaModel> vendas;
 
   VendaList(this.vendas);
 }
 
 class VendaDelete extends VendaState {
-  VendaModel venda;
+  final VendaModel venda;
 
   VendaDelete(this.venda);
 }
 
 class VendaRead extends VendaState {
-  VendaModel venda;
+  final VendaModel venda;
 
   VendaRead(this.venda);
 }
 
 class VendaLoad extends VendaState {
-  String message;
+  final String message;
 
   VendaLoad(this.message);
 
@@ -38,11 +38,10 @@ class VendaLoad extends VendaState {
   String toString() {
     return message;
   }
-
 }
 
 class VendaError extends VendaState {
-  String message;
+  final String message;
 
   VendaError(this.message);
 
@@ -51,5 +50,3 @@ class VendaError extends VendaState {
     return message;
   }
 }
-
-
