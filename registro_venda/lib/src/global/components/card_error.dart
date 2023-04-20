@@ -8,18 +8,18 @@ class CardError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Erro'),
+      title: const Text('Erro'),
       content: SingleChildScrollView(
         child: ListBody(
           children: <Widget>[
-            Icon(icons.close),
+            const Icon(Icons.close),
             Text(message),
           ],
         ),
       ),
       actions: <Widget>[
         TextButton(
-          child: Text('Voltar'),
+          child: const Text('Voltar'),
           onPressed: () {
             Navigator.of(context).pop();
           },
