@@ -6,19 +6,24 @@ class CardLoanding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ListTile(
-            title: const Text('Carregando'),
-            subtitle: Text(message),
+    return Container(
+      color: Colors.white,
+      child: Center(
+        child: Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                title: const Text('Carregando'),
+                subtitle: Text(message),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: CircularProgressIndicator(),
+              ),
+            ],
           ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: CircularProgressIndicator(),
-          ),
-        ],
+        ),
       ),
     );
   }
