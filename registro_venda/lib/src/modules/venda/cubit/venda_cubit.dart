@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:registro_venda/src/modules/venda/models/venda_model.dart';
 import 'package:registro_venda/src/modules/venda/repository/venda_repository.dart';

@@ -31,11 +31,10 @@ class CardConfirmation extends StatelessWidget {
                 funcaoCancela();
               },
             ),
-            TextButton(
-              child: const Text('Confirmar'),
+            ElevatedButton(
+              child: const Text('Não'),
               onPressed: () {
-                funcao();
-                //Navigator.of(context).pop();
+                Navigator.pop(context, false);
               },
             ),
           ],

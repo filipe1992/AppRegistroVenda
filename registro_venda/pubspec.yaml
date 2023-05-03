@@ -32,6 +32,8 @@ dependencies:
   flutter:
     sdk: flutter
   bloc:
+  flutter_bloc:
+  flutter_cubit:
   sqflite:
 
 

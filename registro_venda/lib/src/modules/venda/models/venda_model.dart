@@ -5,6 +5,7 @@ const String columnIdTamanho = 'idTamanho';
 const String columnPreco = 'preco';
 const String columnIdCor = 'idCor';
 const String columnIdCliente = 'idCliente';
+const String columnVenda = 'venda';
 const String columnDataHora = 'dataHora';
 
 class VendaModel {
@@ -14,10 +15,11 @@ class VendaModel {
   double preco;
   int idCor;
   int idCliente;
+  bool venda;
   String dataHora;
 
   VendaModel(this.id, this.idTipo, this.idTamanho, this.preco, this.idCor,
-      this.idCliente, this.dataHora);
+      this.idCliente, this.venda, this.dataHora);
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
@@ -26,6 +28,7 @@ class VendaModel {
       columnPreco: preco,
       columnIdCor: idCor,
       columnIdCliente: idCliente,
+      columnVenda: venda,
       columnDataHora: dataHora
     };
     if (id != null) {
@@ -42,5 +45,6 @@ class VendaModel {
             map[columnPreco],
             map[columnIdCor],
             map[columnIdCliente],
+            map[columnVenda],
             map[columnDataHora]);
 }
