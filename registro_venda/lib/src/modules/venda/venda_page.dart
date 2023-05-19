@@ -1,26 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:registro_venda/src/modules/venda/cubit/venda_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../global/components/card_error.dart';
-import 'components/widget_body_view.dart';
-import 'models/venda_model.dart';
+import 'components/body_list.dart';
+import 'components/body_view.dart';
+import 'components/body_create_update.dart';
 
-class VendaPage extends StatefulWidget {
-  const VendaPage({Key? key}) : super(key: key);
+class VendaPage extends StatelessWidget {
+  VendaPage({Key? key}) : super(key: key);
 
-  @override
-  _VendaPageState createState() => _VendaPageState();
-}
-
-class _VendaPageState extends State<VendaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: VendaView(
-        VendaModel(10, 20, 36, 200.35, 1, 500, false, "23/10/2023 12:51"),
+      body: BlocBuilder<VendaCubit, VendaState>(
+        builder: (context, state) {
+          if (state is VendaList) {
+            print(state.runtimeType);
+            return VendaLista(
+              state.vendas,
+            );
+          } else if (state is VendaRead) {
+            print(state.runtimeType);
+            return VendaView();
+          } else if (state is VendaCreate) {
+            print(state.runtimeType);
+            return VendaCriarAtualizar();
+          } else {
+            return Container();
+          }
+        },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-      ),
+      floatingActionButton:
+          BlocBuilder<VendaCubit, VendaState>(builder: (context, state) {
+        if (state is VendaList) {
+          return FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () => context.read<VendaCubit>().cadastrar(),
+          );
+        } else {
+          return Container();
+        }
+      }),
     );
   }
 }

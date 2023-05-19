@@ -1,4 +1,4 @@
-import 'package:registro_venda/src/modules/venda/models/venda_model.dart';
+import 'package:registro_venda/src/global/models/venda_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class VendaRepository {
@@ -38,14 +38,15 @@ create table $tableVendaModel (
         ],
         where: '$columnId = ?',
         whereArgs: [id]);
-    if (maps.length > 0) {
+    if (maps.isNotEmpty) {
       return VendaModel.fromMap(maps.first as Map<String, dynamic>);
     }
     return null;
   }
 
   Future<int> delete(int id) async {
-    return await db.delete(tableVendaModel, where: '$columnId = ?', whereArgs: [id]);
+    return await db
+        .delete(tableVendaModel, where: '$columnId = ?', whereArgs: [id]);
   }
 
   Future<int> update(VendaModel venda) async {

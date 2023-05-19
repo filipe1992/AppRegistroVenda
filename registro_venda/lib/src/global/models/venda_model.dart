@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 const String tableVendaModel = 'VendaModel';
 const String columnId = 'id';
 const String columnIdTipo = 'idTipo';
@@ -12,9 +14,9 @@ class VendaModel {
   int id;
   int idTipo;
   int idTamanho;
-  double preco;
+  double preco; //opt
   int idCor;
-  int idCliente;
+  int idCliente; //opt
   bool venda;
   String dataHora;
 
@@ -31,9 +33,7 @@ class VendaModel {
       columnVenda: venda,
       columnDataHora: dataHora
     };
-    if (id != null) {
-      map[columnId] = id;
-    }
+    map[columnId] = id;
     return map;
   }
 
@@ -47,4 +47,16 @@ class VendaModel {
             map[columnIdCliente],
             map[columnVenda],
             map[columnDataHora]);
+
+  String toJson() => json.encode(toMap());
+
+  factory VendaModel.fromJson(String source) =>
+      VendaModel.fromMap(json.decode(source));
+
+  // Implement toString to make it easier to see information about
+  // each dog when using the print statement.
+  @override
+  String toString() {
+    return '${venda ? 'Venda' : "Não vendido"}(id: $id, idtipo: $idTipo, idTamanho: $idTamanho, preco: $preco, idCor: $idCor, idCliente: $idCliente, dataHora: $dataHora)';
+  }
 }

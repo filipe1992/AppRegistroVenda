@@ -3,7 +3,11 @@ part of 'venda_cubit.dart';
 @immutable
 abstract class VendaState {}
 
-class VendaCreate extends VendaState {}
+class VendaCreate extends VendaState {
+  final List<TamanhoModel> tamanhos;
+
+  VendaCreate(this.tamanhos);
+}
 
 class VendaUpdate extends VendaState {
   final VendaModel venda;
